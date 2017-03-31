@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Technical Documentation Page</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <!-- NAVBAR-->
+        <nav id="navbar" class="navbar">
+          <header>
+            <h2>Flexbox Documentation</h2>
+          </header>
+          <div class="list-group">
+            <a href="#Why_Flexbox" class="nav-link list-group-item list-group-item-action">Why Flexbox</a>
+            <a href="#Introducing_a_simple_example" class="nav-link list-group-item list-group-item-action">Introducing a simple example</a>
+            <a href="#Specifying_what_elements_to_lay_out_as_flexible_boxes" class="nav-link list-group-item list-group-item-action">Specifying what elements to layout as flexible boxes</a>
+                        <a href="#An_aside_on_the_flex_model" class="nav-link list-group-item list-group-item-action">An aside on the flex model</a>
+            <a href="#Columns_or_rows" class="nav-link list-group-item list-group-item-action">Columns or Rows?</a>
+            <a href="#Wrapping" class="nav-link list-group-item list-group-item-action">Wrapping</a>
+            <a href="#flex-flow_shorthand" class="nav-link list-group-item list-group-item-action">flex-box shorthand</a>
+            <a href="#Flexible_sizing_of_flex_items" class="nav-link list-group-item list-group-item-action">Flexible sizing of flex items</a>
+            <a href="#flex_shorthand_versus_longhand" class="nav-link list-group-item list-group-item-action">flex-shorthand versus longhand</a>
+            <a href="#Horizontal_and_vertical_alignment" class="nav-link list-group-item list-group-item-action">Horizontal and Vertical alignment</a>
+            <a href="#Ordering_flex_items" class="nav-link list-group-item list-group-item-action">Ordering flex items</a>
+            <a href="#Nested_flex_boxes" class="nav-link list-group-item list-group-item-action">Nest flex boxes</a>
+            <a href="#Cross_browser_compatibility" class="nav-link list-group-item list-group-item-action">Cross browser compatability</a>
+            <a href="#Reference" class="nav-link list-group-item list-group-item-action">Reference</a>
+            
+          </div>
+        </nav>
+        <!-- END-OF-NAVBAR-->
+      </div>
+      <div class="col-12 col-md-8">
+        <!-- MAIN-->
+        <main id="main-doc" class="p-3">
+          <section class="main-section" id="Why_Flexbox">
+            <header>
+              <h3>Why Flexbox ?</h3>
+            </header>
+            <p>For a long time, the only reliable cross browser-compatible tools we've had available for creating CSS layouts are things like floats and positioning. These are fine and they work, but in some ways they are also rather limiting and frustrating.</p>
+              <p>The following simple layout requirements are either difficult or impossible to achieve with such tools, in any kind of convenient, flexible way:</p>
+              <ul class="list-styled">
+                <li>Vertically centering a block of content inside its parent.</li>
+                <li>Making all the children of a container take up an equal amount of the available width/height, regardless of how much width/height is available.</li>
+                <li>Making all columns in a multiple column layout adopt the same height even if they contain a different amount of content.</li>
+              </ul>
+              <p>As you'll see in subsequent sections, flexbox makes a lot of layout tasks much easier. Let's dig in!</p>
+          </section>
+          <section class="main-section" id="Introducing_a_simple_example">
+            <header>
+              <h3>Introducing a simple example</h3>
+            </header>
+            <p>In this article we are going to get you to work through a series of exercises to help you understand how flexbox works. To get started, you should make a local copy of the first starter file — flexbox0.html from our github repo — load it in a modern browser (like Firefox or Chrome), and have a look at the code in your code editor. You can see it live here also.</p>
+            <p>You'll see that we have a <a title="The HTML <header> element represents a group of introductory or navigational aids. It may contain some heading elements but also other elements like a logo, a search form, and so on." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header"><code>&lt;header&gt;</code></a> element with a top level heading inside it, and a <a title="The HTML <section> element represents a generic section of a document, i.e., a thematic grouping of content, typically with a heading." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section"><code>&lt;section&gt;</code></a> element containing three <a title="The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article"><code>&lt;article&gt;</code></a>s. We are going to use these to create a fairly standard three column layout.</p>
+            <p><img src="https://mdn.mozillademos.org/files/13406/flexbox-example1.png" alt="" class="d-block mx-auto img-fluid"></p>
+            
+          </section>
+          <section class="main-section" id="Specifying_what_elements_to_lay_out_as_flexible_boxes">
+            <header>
+              <h3>Specifying what elements to lay out as flexible boxes</h3>
+            </header>
+            <p>To start with, we need to select which elements are to be laid out as flexible boxes. To do this, we set a special value of <a title="The display CSS property specifies the type of rendering box used for an element. In HTML, default display property values are taken from behaviors described in the HTML specifications or from the browser/user default stylesheet. The default value in XML is inline." href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a> on the parent element of the elements you want to affect. In this case we want to lay out the <a title="The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article"><code>&lt;article&gt;</code></a> elements, so we set this on the <a title="The HTML <section> element represents a generic section of a document, i.e., a thematic grouping of content, typically with a heading." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section"><code>&lt;section&gt;</code></a> (which becomes a flex container):</p>
+            <pre class="css line-numbers  language-css"><code class=" language-css"><span class="token selector">section </span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+            <p>The result of this should be something like so:</p>
+            <p><img src="https://mdn.mozillademos.org/files/13408/flexbox-example2.png" alt="" class="d-block mx-auto img-fluid"></p>
+            <p>So, this single declaration gives us everything we need — incredible, right? We have our multiple column layout with equal sized columns, and the columns are all the same height. This is because the default values given to flex items (the children of the flex container) are set up to solve common problems such as this. More on those later.</p>
+          </section>
+          <section class="main-section" id="An_aside_on_the_flex_model">
+            <header>
+              <h3>An aside on the flex model</h3>
+            </header>
+            <p>When elements are laid out as flexible boxes, they are laid out along two axes:</p>
+            <p><img src="https://developer.mozilla.org/files/3739/flex_terms.png" alt="flex_terms.png" class="d-block mx-auto img-fluid"></p>
+              <ul>
+               <li>The <strong>main axis</strong> is the axis running in the direction the flex items are being laid out in (e.g. as rows across the page, or columns down the page.) The start and end of this axis are called the <strong>main start</strong> and <strong>main end</strong>.</li>
+               <li>The <strong>cross axis</strong> is the axis running perpendicular to the direction the flex items are being laid out in. The start and end of this axis are called the <strong>cross start</strong> and <strong>cross end</strong>.</li>
+               <li>The parent element that has <code>display: flex</code> set on it (the <a title="The HTML <section> element represents a generic section of a document, i.e., a thematic grouping of content, typically with a heading." href="/en-US/docs/Web/HTML/Element/section"><code>&lt;section&gt;</code></a> in our example) is called the <strong>flex container</strong>.</li>
+               <li>The items being laid out as flexible boxes inside the flex container are called <strong>flex items</strong> (the <a title="The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry." href="/en-US/docs/Web/HTML/Element/article"><code>&lt;article&gt;</code></a> elements in our example).</li>
+             </ul>
+              <p>Bear this terminology in mind as you go through subsequent sections. You can always refer back to it if you get confused about any of the terms being used.</p>
+          </section>
+          <section class="main-section" id="Columns_or_rows">
+            <header>
+              <h3>Columns or rows?</h3>
+            </header>
+            <p>Flexbox provides a property called <a title="The flex-direction CSS property specifies how flex items are placed in the flex container defining the main axis and the direction (normal or reversed)." href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction"><code>flex-direction</code></a> that specifies what direction the main axis runs in (what direction the flexbox children are laid out in) — by default this is set to <code>row</code>, which causes them to be laid out in a row in the direction your browser's default laguage works in (left to right, in the case of an English browser).</p>
+            <p>Try adding the following declaration to your section rule:</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="line-numbers-rows"><span></span></span></code></pre>
+            <p>You'll see that this puts the items back in a column layout, much like they were before we added any CSS. Before you move on, delete this declaration from your example.</p>
+          </section>
+          <section class="main-section" id="Wrapping">
+            <header>
+              <h3>Wrapping</h3>
+            </header>
+            <p>One issue that arises when you have a fixed amount of width or height in your layout is that eventually your flexbox children will overflow their container, breaking the layout. Have a look at our <a href="https://github.com/mdn/learning-area/blob/master/css/css-layout/flexbox/flexbox-wrap0.html" class="external external-icon">flexbox-wrap0.html</a> example, and try <a href="http://mdn.github.io/learning-area/css/css-layout/flexbox/flexbox-wrap0.html" class="external external-icon">viewing it live</a> (take a local copy of this file now if you want to follow along with this example):</p>
+            <p><img src="https://mdn.mozillademos.org/files/13410/flexbox-example3.png" alt="" class="d-block mx-auto img-fluid"></p>
+            <p>Here we see that the children are indeed breaking out of their container. One way in which you can fix this is to add the following declaration to your section rule:</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap<span class="line-numbers-rows"><span></span></span></code></pre>
+            <p>Try this now; you'll see that the layout looks much better with this included:</p>
+            <p><img src="https://mdn.mozillademos.org/files/13412/flexbox-example4.png" alt="" class="d-block mx-auto img-fluid">We now have multiple rows — as many flexbox children are fitted onto each row as makes sense, and any overflow is moved down to the next line. The <code>flex: 200px</code> declaration set on the articles means that each will be at least 200px wide; we'll discuss this property in more detail later on. You might also notice that the last few children on the last row are each made wider so that the entire row is still filled.</p><p>But there's more we can do here. First of all, try changing your <a title="The flex-direction CSS property specifies how flex items are placed in the flex container defining the main axis and the direction (normal or reversed)." href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction"><code>flex-direction</code></a> property value to <code>row-reverse</code> — now you'll see that you still have your multiple row layout, but it is started from the opposite corner of the browser window and now flows in reverse.</p>
+            
+          </section>
+          <section class="main-section" id="flex-flow_shorthand">
+            <header>
+              <h3>flex-flow shorthand</h3>
+            </header>
+            <p>At this point it is worth noting that a shorthand exists for <a title="The flex-direction CSS property specifies how flex items are placed in the flex container defining the main axis and the direction (normal or reversed)." href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction"><code>flex-direction</code></a> and <a title="The CSS flex-wrap property specifies whether flex items are forced into a single line or can be wrapped onto multiple lines. If wrapping is allowed, this property also enables you to control the direction in which lines are stacked." href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap"><code>flex-wrap</code></a> — <a title="The flex-flow CSS property is a shorthand property for flex-direction and flex-wrap individual properties." href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow"><code>flex-flow</code></a>. So for example, you can replace</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token property">flex-direction</span><span class="token punctuation">:</span> row<span class="token punctuation">;</span>
+<span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap<span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span></span></code></pre>
+            <p>with</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token property">flex-flow</span><span class="token punctuation">:</span> row wrap<span class="token punctuation">;</span><span class="line-numbers-rows"><span></span></span></code></pre>
+          </section>
+          <section class="main-section" id="Flexible_sizing_of_flex_items">
+            <header>
+              <h3>Flexible sizing of flex items</h3>
+            </header>
+            <p>Let's now return to our first example, and look at how we can control what proportion of space flex items take up. Fire up your local copy of <a href="https://github.com/mdn/learning-area/blob/master/css/css-layout/flexbox/flexbox0.html" class="external external-icon">flexbox0.html</a>, or take a copy of <a href="https://github.com/mdn/learning-area/blob/master/css/css-layout/flexbox/flexbox1.html" class="external external-icon">flexbox1.html</a> as a new starting point (<a href="http://mdn.github.io/learning-area/css/css-layout/flexbox/flexbox1.html" class="external external-icon">see it live</a>).</p>
+            <p>First, add the following rule to the bottom of your CSS:</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token selector">article </span><span class="token punctuation">{</span>
+  <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+            <p>This is a unitless proportion value that dictates how much of the available space along the main axis each flex item will take up. In this case, we are giving each <a title="The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article"><code>&lt;article&gt;</code></a> element a value of 1, which means they will all take up an equal amount of the spare space left after things like padding and margin have been set. It is a proportion, meaning that giving each flex item a value of 400000 would have exactly the same effect.</p>
+            <p>Now add the following rule below the previous one:</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token selector">article<span class="token pseudo-class">:nth-of-type(3)</span> </span><span class="token punctuation">{</span>
+  <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+            <p>Now when you refresh, you'll see that the third <a title="The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article"><code>&lt;article&gt;</code></a> takes up twice as much of the available width as the other two — there are now four proportion units available in total. The first two flex items have one each so they take 1/4 of the available space each. The third one has two units, so it takes up 2/4 of the available space (or 1/2).</p>
+            <p>You can also specify a minimum size value inside the flex value. Try updating your existing article rules like so:</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token selector">article </span><span class="token punctuation">{</span>
+  <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">article<span class="token pseudo-class">:nth-of-type(3)</span> </span><span class="token punctuation">{</span>
+  <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">2</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            <p>This basically states "Each flex item will first be given 200px of the available space. After that, the rest of the available space will be shared out according to the proportion units." Try refreshing and you'll see a difference in how the space is shared out.</p>
+            <p><img src="https://mdn.mozillademos.org/files/13406/flexbox-example1.png" alt="" class="d-block mx-auto img-fluid"></p>
+            <p>The real value of flexbox can be seen in its flexibility/responsiveness — if you resize the browser window, or add another <a title="The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article"><code>&lt;article&gt;</code></a> element, the layout continues to work just fine.</p>
+            
+          </section>
+          <section class="main-section" id="flex_shorthand_versus_longhand">
+            <header>
+              <h3>flex: shorthand versus longhand</h3>
+            </header>
+            <p><a title="The flex CSS property is a shorthand property specifying the ability of a flex item to alter its dimensions to fill available space. Flex items can be stretched to use available space proportional to their flex grow factor or their flex shrink factor to prevent overflow." href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex"><code>flex</code></a> is a shorthand property that can specify up to three different values:</p>
+            <ul>
+ <li>The unitless proportion value we discussed above. This can be specified individually using the <a title="The flex-grow CSS property specifies the flex grow factor of a flex item. It specifies what amount of space inside the flex container the item should take up." href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow"><code>flex-grow</code></a> longhand property.</li>
+ <li>A second unitless proportion value — <a title="The flex-shrink CSS property specifies the flex shrink factor of a flex item." href="/en-US/docs/Web/CSS/flex-shrink"><code>flex-shrink</code></a> — that comes into play when the flex items are overflowing their container. This specifies how much of the overflowing amount is taken away from each flex item's size, to stop them overflowing their container. This is quite an advanced flexbox feature, and we won't be convering it any further in this article.</li>
+ <li>The minimum size value we discussed above. This can be specified individually using the <a title="The flex-basis CSS property specifies the flex basis which is the initial main size of a flex item. This property determines the size of the content-box unless specified otherwise using box-sizing." href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis"><code>flex-basis</code></a> longhand value.</li>
+            </ul>
+            <p>We'd advise against using the longhand flex properties unless you really have to (for example, to override something prevously set). They lead to a lot of extra code being written, and they can be somewhat confusing.</p>
+          </section>
+          <section class="main-section" id="Horizontal_and_vertical_alignment">
+            <header>
+              <h3>Horizontal and vertical alignment</h3>
+            </header>
+            <p>You can also use flexbox features to align flex items along the main or cross axes. Let's explore this by looking at a new example — <a href="https://github.com/mdn/learning-area/blob/master/css/css-layout/flexbox/flex-align0.html" class="external external-icon">flex-align0.html</a> (<a href="http://mdn.github.io/learning-area/css/css-layout/flexbox/flex-align0.html" class="external external-icon">see it live also</a>) — which we are going to turn into a neat, flexible button/toolbar. At the moment you'll see a horizontal menu bar, with some buttons jammed into the top left hand corner.</p>
+            <p><img src="https://mdn.mozillademos.org/files/13414/flexbox-example5.png" alt="" class="d-block mx-auto img-fluid"></p>
+            <p>First, take a local copy of this example.</p>
+            <p>Now, add the following to the bottom of the example's CSS:</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token selector">div </span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>Refresh the page and you'll see that the buttons are now nicely centered, horizontally and vertically. We've done this via two new properties.</p>
+            <p><a title="The CSS align-items property defines how the browser distributes space between and around flex items along the cross-axis of their container. This means it works like justify-content but in the perpendicular direction." href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items"><code>align-items</code></a> controls where the flex items sit on the cross axis.</p>
+            <ul>
+ <li>By default, the value is <code>stretch</code>, which stretches all flex items to fill the parent in the direction of the cross axis. If the parent hasn't got a fixed width in the cross axis direction, then all flex items will become as long as the longest flex items. This is how our first example got equal height columns by default.</li>
+ <li>The <code>center</code> value that we used in our above code causes the items to maintain their intrinsic dimensions, but be centered along the cross axis. This is why our current example's buttons are centered vertically.</li>
+ <li>You can also have values like <code>flex-start</code> and <code>flex-end</code>, which will align all items at the start and end of the cross axis respectively. See <a title="The CSS align-items property defines how the browser distributes space between and around flex items along the cross-axis of their container. This means it works like justify-content but in the perpendicular direction." href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items"><code>align-items</code></a> for the full details.</li>
+            </ul>
+            <p>You can override the <a title="The CSS align-items property defines how the browser distributes space between and around flex items along the cross-axis of their container. This means it works like justify-content but in the perpendicular direction." href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items"><code>align-items</code></a> behavior for individual flex items by applying the <a title="The align-self CSS property aligns flex items of the current flex line overriding the align-items value. If any of the flex item's cross-axis margin is set to auto, then align-self is ignored." href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self"><code>align-self</code></a> property to them. For example, try adding the following to your CSS:</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token selector">button<span class="token pseudo-class">:first-child</span> </span><span class="token punctuation">{</span>
+  <span class="token property">align-self</span><span class="token punctuation">:</span> flex-end<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+            <p>Have a look at what effect this has, and remove it again when you've finished.</p>
+            <p><a title="The CSS justify-content property defines how the browser distributes space between and around flex items along the main-axis of their container." href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content"><code>justify-content</code></a> controls where the flex items sit on the main axis.</p>
+            <ul>
+ <li>The default value is <code>flex-start</code>, which makes all the items sit at the start of the main axis.</li>
+ <li>You can use <code>flex-end</code> to make them sit at the end.</li>
+ <li><code>center</code> is also a value for <code>justify-content</code>, and will make the flex items sit in the center of the main axis.</li>
+ <li>The value we've used above, <code>space-around</code>, is useful — it distributes all the items evenly along the main axis, with a bit of space left at either end.</li>
+ <li>There is another value, <code>space-between</code>, which is very similar to <code>space-around</code> except that it doesn't leave any space at either end.</li>
+            </ul>
+            <p>We'd like to encourage you to play with these values to see how they work before you continue.</p>
+          </section>
+          <section class="main-section" id="Ordering_flex_items">
+            <header>
+              <h3>Ordering flex items</h3>
+            </header>
+            <p>Flexbox also has a feature for changing the layout order of flex items, without affecting the source order. This is another thing that is impossible to do with traditional layout methods.</p>
+            <p>The code for this is simple: try adding the following CSS to your button bar example code:</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token selector">button<span class="token pseudo-class">:first-child</span> </span><span class="token punctuation">{</span>
+  <span class="token property">order</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+            <p>Refresh, and you'll now see that the "Smile" button has moved to the end of the main axis. Let's talk about how this works in a bit more detail:</p>
+            <ul>
+ <li>By default, all flex items have an <a title="The CSS order property specifies the order used to lay out flex items in their flex container. Elements are laid out in the&nbsp;ascending order of the order value. Elements with the same order value are laid out in the order in which they appear in the source code." href="https://developer.mozilla.org/en-US/docs/Web/CSS/order"><code>order</code></a> value of 0.</li>
+ <li>Flex items with higher order values set on them will appear later in the display order than items with lower order values.</li>
+ <li>Flex items with the same order value will appear in their source order. So if you have four items with order values of 2, 1, 1, and 0 set on them respectively, their display order would be 4th, 2nd, 3rd, then 1st.</li>
+ <li>The 3rd item appears after the 2nd because it has the same order value and is after it in the source order.</li>
+            </ul>
+            <p>You can set negative order values to make items appear earlier than items with 0 set. For example, you could make the "Blush" button appear at the start of the main axis using the following rule:</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token selector">button<span class="token pseudo-class">:last-child</span> </span><span class="token punctuation">{</span>
+  <span class="token property">order</span><span class="token punctuation">:</span> -<span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+            
+          </section>
+          <section class="main-section" id="Nested_flex_boxes">
+            <header>
+              <h3>Nested flex boxes</h3>
+            </header>
+            <p>It is possible to create some pretty complex layouts with flexbox. It is perfectly ok to set a flex item to also be a flex container, so that its children are also laid out like flexible boxes. Have a look at <a href="https://github.com/mdn/learning-area/blob/master/css/css-layout/flexbox/complex-flexbox.html" class="external external-icon">complex-flexbox.html</a> (<a href="http://mdn.github.io/learning-area/css/css-layout/flexbox/complex-flexbox.html" class="external external-icon">see it live also</a>).</p>
+            <p><img src="https://mdn.mozillademos.org/files/13418/flexbox-example7.png" alt="" class="d-block mx-auto img-fluid"></p>
+            <p>The HTML for this is fairly simple. We've got a <a title="The HTML <section> element represents a generic section of a document, i.e., a thematic grouping of content, typically with a heading." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section"><code>&lt;section&gt;</code></a> element containing three <a title="The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article"><code>&lt;article&gt;</code></a>s. The third <a title="The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article"><code>&lt;article&gt;</code></a> contains three <a title="The HTML <div> element is the generic container for flow content and does not inherently represent anything. Use it to group elements for purposes such as styling (using the class or id attributes), marking a section of a document in a different language (using the lang attribute), and so on." href="/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a>s. :</p>
+            <pre class="line-numbers  language-html"><code class=" language-html">section - article
+          article
+          article - div - button   
+                    div   button
+                    div   button
+                          button
+                          button<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            <p>Let's look at the code we've used for the layout.</p>
+            <p>First of all, we set the children of the <a title="The HTML <section> element represents a generic section of a document, i.e., a thematic grouping of content, typically with a heading." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section"><code>&lt;section&gt;</code></a> to be laid out as flexible boxes.</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token selector">section </span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+            <p>Next, we set some flex values on the <a title="The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article"><code>&lt;article&gt;</code></a>s themselves. Take special note of the 2nd rule here — we are setting the third <a title="The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article"><code>&lt;article&gt;</code></a> to have its children laid out like flex items too, but this time we are laying them out like a column.</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token selector">article </span><span class="token punctuation">{</span>
+  <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">article<span class="token pseudo-class">:nth-of-type(3)</span> </span><span class="token punctuation">{</span>
+  <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-flow</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>Next, we select the first <a title="The HTML <div> element is the generic container for flow content and does not inherently represent anything. Use it to group elements for purposes such as styling (using the class or id attributes), marking a section of a document in a different language (using the lang attribute), and so on." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a>. We first use <code>flex: 1 100px;</code> to effectively give it a minimum height of 100px, then we set its children (the <a title="The HTML <button> element represents a clickable button." href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements) to also be laid out like flex items. Here we lay them out in a wrapping row, and align them in the center of the available space like we did in the individual button example we saw earlier.</p>
+            <p>Next, we select the first <a title="The HTML <div> element is the generic container for flow content and does not inherently represent anything. Use it to group elements for purposes such as styling (using the class or id attributes), marking a section of a document in a different language (using the lang attribute), and so on." href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a>. We first use <code>flex: 1 100px;</code> to effectively give it a minimum height of 100px, then we set its children (the <a title="The HTML <button> element represents a clickable button." href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements) to also be laid out like flex items. Here we lay them out in a wrapping row, and align them in the center of the available space like we did in the individual button example we saw earlier.</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token selector">article<span class="token pseudo-class">:nth-of-type(3)</span> div<span class="token pseudo-class">:first-child</span> </span><span class="token punctuation">{</span>
+  <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-flow</span><span class="token punctuation">:</span> row wrap<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            <p>Finally, we set some sizing on the button, but more interestingly we give it a flex value of 1. This has a very interesting effect, which you'll see if you try resizing your browser window width. The buttons will take up as much space as they can and sit as many on the same line as they can, but when they can no longer fit comfortably on the same line, they'll drop down to create new lines.</p>
+            <pre class="brush: css line-numbers  language-css"><code class=" language-css"><span class="token selector">button </span><span class="token punctuation">{</span>
+  <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">5</span>px<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">18</span>px<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">1.5</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            
+          </section>
+          <section class="main-section" id="Cross_browser_compatibility">
+            <header>
+              <h3>Cross browser compatibility</h3>
+            </header>
+            <p>Flexbox support is available in most new browsers — Firefox, Chrome, Opera, Microsoft Edge and IE 11, newer versions of Android/iOS, etc. However you should be aware that there are still older browsers in use that don't support Flexbox (or do, but support a really old, out-of-date version of it.)</p>
+            <p>While you are just learning and experimenting, this doesn't matter too much; however if you are considering using flexbox in a real website you need to do testing and make sure that your user experience is still acceptable in as many browsers as possible.</p>
+            <p>Flexbox is a bit trickier than some CSS features. For example, if a browser is missing a CSS drop shadow, then the site will likely still be usable. Not supporting flexbox features however will probably break a layout completely, making it unusable.</p>
+            <p>We'll discuss strategies for overcoming tricky cross browser support issues in a future module.</p>
+          </section>
+          <section class="main-section" id="Reference">
+            <header>
+              <h3>Reference</h3>
+            </header>
+            <p>All the documentation had been taken from <a href="https://developer.mozilla.org/">MDN</a>
+              </p>
+            <h4 class="text-center">Thank you very much for watching it and reading this awesome documentation on Flexbox</h4>
+            <p class="lead text-center">Designed and developed with <i class="fa fa-heart text-info"></i> for <span class="text-info">freecodecamp</span></p>
+            <p class="text-center">Powered by SrRohitKandpal</p>
+          </section>
+        </main>
+        <!-- END-OF-MAIN-->
+      </div>
+    </div>
+  </div>
+  
+</body>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

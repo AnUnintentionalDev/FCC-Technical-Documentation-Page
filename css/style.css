@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css');
+
+body{ font-family: 'Raleway', sans-serif;}
+
+#navbar{ border-right: 2px solid #666; max-height: 100%; width: 33%; position: fixed; overflow-y: scroll;}
+#navbar header h2{ font-weight: 700;}
+#navbar .list-group-item{ padding: 1.5rem 1.25rem; transition: all ease-in 0.2s; -weblit-transition: all ease-in 0.2s;}
+#navbar .nav-link.active, #navbar .nav-link:hover, #navbar .nav-link:focus{ background: #171717; color: #fff;}
+#navbar .list-group-item:before{ content: '\f046'; font-family: FontAwesome; position: absolute; left: 3px; font-weight: bold;}
+
+#main-doc{ background: #171717; color: #fff;}
+.main-section{ width: 100%; position: relative; padding: 0 2px;}
+.main-section h3{ font-weight: 700; position: relative; padding-left: 1.2em; padding-top: 1em;}
+.main-section h3:before{ content: '\f046'; font-family: FontAwesome; position: absolute; left: 0px; font-weight: bold;}
+.main-section pre{ background: #fff; color: #171717; padding: 5px; max-width: 70%;}
+
+@media screen and (max-width: 767px){
+  #navbar{ position: relative; height: 300px; width: 100%;}
+  
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+  #navbar .list-group-item{ font-size: 0.8em;}
+}
